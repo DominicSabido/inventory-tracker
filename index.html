@@ -1,12 +1,35 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inventory-tracker</title>
-</head>
-<body>
-  <div id="inventory-list"></div>
-  <script src="script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inventory-tracker</title>
+  </head>
+  <body>
+    <div id="inventory-list"></div>
+
+    <script src="script.js"></script>
+
+    <form id="addItemForm">
+      <label for="id">ID:</label>
+      <input type="text" id="id" />
+
+      <label for="name">Name:</label>
+      <input type="text" id="name" />
+
+      <label for="product">Product:</label>
+      <input type="text" id="product" />
+
+      <label for="partNumber">Product part number:</label>
+      <input type="text" id="partNumber" />
+
+      <label for="qty">Quantity:</label>
+      <input type="number" id="qty" />
+
+      <label for="lowQtyThreshold">Low quantity threshold:</label>
+      <input type="number" id="lowQtyThreshold" />
+
+      <button type="button" id="addButton">Add</button>
+    </form>
+  </body>
 </html>
