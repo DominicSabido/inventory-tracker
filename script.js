@@ -39,6 +39,16 @@ inventory.forEach((item) => { // Loops through the inventory object
   deleteBtn.innerText = "Delete";
   deleteBtn.addEventListener("click", () => deleteItem(item.id));
   p.appendChild(deleteBtn);
+
+  const plusBtn = document.createElement("button");
+  plusBtn.innerText = "+";
+  plusBtn.addEventListener("click", () => changeQty(item.id, 1));
+  p.appendChild(plusBtn);
+
+  const minusBtn = document.createElement("button");
+  plusBtn.innerText = "-";
+  plusBtn.addEventListener("click", () => changeQty(item.id, -1));
+  p.appendChild(minusBtn);
 });
 }
 
@@ -69,8 +79,14 @@ const addButton = document.getElementById("addButton");
 addButton.addEventListener("click",addItem);
 
 function deleteItem(id){
-  const index = inventory.findIndex((item) => item.id === id); 
+  const index = inventory.findIndex((item) => item.id === id); //.findIndex looks through inventory, it takes the current item, looks at the current items id and checks if matches the id passed in the parameter. if it's true, it returns the current item's index.
   inventory.splice(index, 1)// starting at index, remove 1
+  renderInventory();
+}
+
+function changeQty(id, amount){
+  const item = inventory.find((part) => part.id === id);
+  item.qty = item.qty + amount;
   renderInventory();
 }
 
